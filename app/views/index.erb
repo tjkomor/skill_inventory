@@ -1,1 +1,16 @@
 <h1>My Skills</h1>
+
+<% @skill.each do |skill| %>
+  <h3><%= skill.id %>: <a href="/skills/<%= skill.id %>"><%= skill.description %></a></h3>
+  <a href='/skills/<%= skill.id %>/edit'>Edit</a>
+  <form action='/skills/<%= skill.id %>' method="POST">
+    <input type="hidden" name='_method' value='delete'>
+    <input type='submit' value='delete'>
+  </form>
+<% end %>
+
+<!-- <form action="/skill" method="POST">
+  <p>Add Skill:</p>
+  <textarea name='skill'></textarea><br/>
+  <input type='submit'/>
+</form> -->
